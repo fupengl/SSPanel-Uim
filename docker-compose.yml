@@ -8,4 +8,4 @@ services:
         ports:
             - 80:80
         volumes:
-            - ./config/.config.php:/var/www/config/.config.php
+            - ./:/var/www/

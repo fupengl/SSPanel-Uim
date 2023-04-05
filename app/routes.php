@@ -11,9 +11,6 @@ use Slim\Routing\RouteCollectorProxy;
 return static function (Slim\App $app): void {
     // Home
     $app->get('/', App\Controllers\HomeController::class . ':index');
-    $app->get('/404', App\Controllers\HomeController::class . ':page404');
-    $app->get('/405', App\Controllers\HomeController::class . ':page405');
-    $app->get('/500', App\Controllers\HomeController::class . ':page500');
     $app->get('/tos', App\Controllers\HomeController::class . ':tos');
     $app->get('/staff', App\Controllers\HomeController::class . ':staff');
     // Telegram
@@ -55,6 +52,7 @@ return static function (Slim\App $app): void {
         $group->post('/theme', App\Controllers\UserController::class . ':updateTheme');
         $group->post('/mail', App\Controllers\UserController::class . ':updateMail');
         $group->post('/passwd_reset', App\Controllers\UserController::class . ':resetPasswd');
+        $group->post('/apitoken_reset', App\Controllers\UserController::class . ':resetApiToken');
         $group->post('/method', App\Controllers\UserController::class . ':updateMethod');
         $group->get('/kill', App\Controllers\UserController::class . ':kill');
         $group->post('/kill', App\Controllers\UserController::class . ':handleKill');
